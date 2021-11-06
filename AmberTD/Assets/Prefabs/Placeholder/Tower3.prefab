@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521969578493219040}
   - component: {fileID: 5051876805254309273}
+  - component: {fileID: 6330062456190266650}
   m_Layer: 0
   m_Name: Tower3
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4552416613642995727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2517196, y: -0.047191843, z: -0.63243264}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4748842451176772288}
@@ -44,6 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bce207bb2484b8de6cad957cf420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerType: 2
+  fireRate: 1.5
+--- !u!58 &6330062456190266650
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552416613642995727}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.11
 --- !u!1 &4721293812200085754
 GameObject:
   m_ObjectHideFlags: 0
