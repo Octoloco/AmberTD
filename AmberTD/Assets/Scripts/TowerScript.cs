@@ -8,10 +8,10 @@ public class TowerScript : MonoBehaviour
 
     [SerializeField]
     private TowerTypeEnum towerType = TowerTypeEnum.Normal;
-
     [SerializeField]
     private float fireRate;
 
+    private ObjectPool ammoPool;
     private List<Transform> enemiesInRange;
     private float fireTimer;
     private Transform target;
@@ -31,13 +31,14 @@ public class TowerScript : MonoBehaviour
     {
         LookAtTarget();
 
+        //When ready to fire projectile and there is a target, it will shoot
         if (fireTimer > 0)
         {
             fireTimer -= Time.deltaTime;
         }
         else
         {
-            if (enemiesInRange.Count > 0)
+            if (target != null)
             {
                 fireTimer = fireRate;
                 Fire();
@@ -86,12 +87,16 @@ public class TowerScript : MonoBehaviour
 
     private void Fire()
     {
-
+        GameObject newProjectile = ammoPool.GetObjectFromPool();
+        newProjectile.GetComponent<ProjectileScript>().SetTarget(target);
+        newProjectile.transform.rotation = transform.rotation;
+        newProjectile.transform.position = transform.position;
     }
 
-    public void Initialize(Vector3 newPosition)
+    public void Initialize(Vector3 newPosition, ObjectPool pool)
     {
         //Sets the tower in the correct position
+        ammoPool = pool;
         transform.position = newPosition;
         gameObject.SetActive(true);
     }

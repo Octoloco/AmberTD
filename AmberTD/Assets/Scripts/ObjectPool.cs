@@ -12,7 +12,6 @@ public class ObjectPool : MonoBehaviour
     private void Start()
     {
         objectPool = new Queue<GameObject>();
-        CreateObject(10);
     }
 
     public GameObject GetObjectFromPool()

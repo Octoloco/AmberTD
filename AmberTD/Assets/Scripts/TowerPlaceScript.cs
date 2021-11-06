@@ -10,6 +10,12 @@ public class TowerPlaceScript : MonoBehaviour
     private ObjectPool poolTower2;
     [SerializeField]
     private ObjectPool poolTower3;
+    [SerializeField]
+    private ObjectPool ammoPool1;
+    [SerializeField]
+    private ObjectPool ammoPool2;
+    [SerializeField]
+    private ObjectPool ammoPool3;
 
     private bool hasTower;
 
@@ -38,17 +44,17 @@ public class TowerPlaceScript : MonoBehaviour
         if (type == 1)
         {
             GameObject newTower = poolTower1.GetObjectFromPool();
-            newTower.GetComponent<TowerScript>().Initialize(transform.position);
+            newTower.GetComponent<TowerScript>().Initialize(transform.position, ammoPool1);
         }
         else if (type == 2)
         {
             GameObject newTower = poolTower2.GetObjectFromPool();
-            newTower.GetComponent<TowerScript>().Initialize(transform.position);
+            newTower.GetComponent<TowerScript>().Initialize(transform.position, ammoPool2);
         }
         else if (type == 3)
         {
             GameObject newTower = poolTower3.GetObjectFromPool();
-            newTower.GetComponent<TowerScript>().Initialize(transform.position);
+            newTower.GetComponent<TowerScript>().Initialize(transform.position, ammoPool3);
         }
     }
 }
