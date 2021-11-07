@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
     private float speed;
     [SerializeField]
     private Transform nodes;
+    [SerializeField]
+    private int currencyCost;
 
     private int nodeIndex;
 
@@ -45,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
     public void Die()
     {
         GetComponentInParent<ObjectPool>().AddToQueue(gameObject);
+        EconomyScript.instance.AddCurrency(currencyCost);
         gameObject.SetActive(false);
     }
 }

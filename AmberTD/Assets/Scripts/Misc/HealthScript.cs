@@ -39,9 +39,8 @@ public class HealthScript : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         //Add custom death behaviour
-        GetComponent<EnemyMovement>().Die();
     }
 }
