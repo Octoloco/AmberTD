@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
         if (nodeIndex < nodes.childCount)
         {
             //Measure the distance between enemy and next node
-            Vector2 distance = nodes.GetChild(nodeIndex).transform.position - transform.position;
+            Vector2 distance = nodes.GetChild(nodeIndex).position - transform.position;
             if (distance.magnitude < 0.1f)
             {
                 // if the enemy arrived at node, go to next node
@@ -33,5 +33,18 @@ public class EnemyMovement : MonoBehaviour
                 transform.Translate(distance.normalized * speed * Time.deltaTime);
             }
         }
+    }
+
+    public void Initialize(Transform newNodes)
+    {
+        nodes = newNodes;
+        transform.position = nodes.GetChild(0).position;
+        gameObject.SetActive(true);
+    }
+
+    public void Die()
+    {
+        GetComponentInParent<ObjectPool>().AddToQueue(gameObject);
+        gameObject.SetActive(false);
     }
 }

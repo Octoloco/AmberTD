@@ -6,6 +6,8 @@ public class ProjectileScript : MonoBehaviour
 {
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float damage;
 
     private Transform target;
 
@@ -36,6 +38,7 @@ public class ProjectileScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            collision.GetComponent<HealthScript>().ReduceHealth(damage);
             Recycle();
         }
     }
