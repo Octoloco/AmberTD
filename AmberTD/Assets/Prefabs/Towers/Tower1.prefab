@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 43806830}
   - component: {fileID: 43806831}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272950143}
   - component: {fileID: 272950144}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413465967}
   - component: {fileID: 1413465968}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6334787924616399815}
   - component: {fileID: 5876602829677350379}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4772324125851541551}
   - component: {fileID: 1011142750806580666}
   - component: {fileID: 442941222299376635}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerType: 0
-  fireRate: 1.5
+  fireRate: 0.5
 --- !u!58 &442941222299376635
 CircleCollider2D:
   m_ObjectHideFlags: 0

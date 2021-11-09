@@ -8,16 +8,40 @@ public class ProjectileScript : MonoBehaviour
     private float speed;
     [SerializeField]
     private float damage;
+    [SerializeField]
+    private float areaRadius;
+    [SerializeField]
+    private bool appliesSlow;
+    [SerializeField]
+    private bool areaDamage;
+    [SerializeField]
+    private float timeToDie = 1.5f;
 
     private Transform target;
+
+    private float timer;
 
     private void Awake()
     {
         gameObject.SetActive(false);
     }
 
+    private void Start()
+    {
+        timer = timeToDie;
+    }
+
     void Update()
     {
+        if (timer < 0)
+        {
+            timer = timeToDie;
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+        }
+
         if (target != null)
         {
             Vector2 direction = (Vector2)target.transform.position - (Vector2)transform.position;
@@ -38,8 +62,31 @@ public class ProjectileScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.GetComponent<HealthScript>().ReduceHealth(damage);
-            Recycle();
+            if (areaDamage)
+            {
+                Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(transform.position, areaRadius);
+                foreach(Collider2D e in enemiesHit)
+                {
+                    if (e.gameObject.tag == "Enemy")
+                    {
+                        if (appliesSlow)
+                        {
+                            e.GetComponent<EnemyMovement>().SlowEnemy();
+                        }
+                        e.GetComponent<HealthScript>().ReduceHealth(damage);
+                        Recycle();
+                    }
+                }
+            }
+            else
+            {
+                if (appliesSlow)
+                {
+                    collision.GetComponent<EnemyMovement>().SlowEnemy();
+                }
+                collision.GetComponent<HealthScript>().ReduceHealth(damage);
+                Recycle();
+            }
         }
     }
 
@@ -47,6 +94,11 @@ public class ProjectileScript : MonoBehaviour
     {
         GetComponentInParent<ObjectPool>().AddToQueue(gameObject);
         gameObject.SetActive(false);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, areaRadius);
     }
 
     public static float DirToAngle(Vector2 dir) => Mathf.Atan2(dir.y, dir.x);

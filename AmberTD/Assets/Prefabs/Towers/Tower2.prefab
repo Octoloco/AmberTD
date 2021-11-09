@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4873578497698017268}
   - component: {fileID: 1546629731197616109}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7143685643968920308}
   - component: {fileID: 8240909236968523273}
   - component: {fileID: 5993237747388925020}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tower2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerType: 1
-  fireRate: 1.5
+  fireRate: 0.5
 --- !u!58 &5993237747388925020
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4605929438024893944}
   - component: {fileID: 7644571419826590243}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,9 +218,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.85882354, g: 0.58980733, b: 0.32941175, a: 1}
+  m_Color: {r: 0.2691349, g: 0.8366714, b: 0.9056604, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -240,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2093183120611716029}
   - component: {fileID: 4912713384634690232}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4326336549924795965}
   - component: {fileID: 1504438990594049420}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
