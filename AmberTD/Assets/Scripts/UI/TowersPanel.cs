@@ -8,13 +8,6 @@ public class TowersPanel : UIPanel
     [SerializeField]
     private Button[] buttons;
 
-    new private void Update()
-    {
-        base.Update();
-
-        WorldCanvasManager.instance.SetTowersPanelOpened(showing);
-    }
-
     public void AddBuyEvents(TowerPlaceScript TPSReference)
     {
         buttons[0].onClick.AddListener(() => TPSReference.BuyTower(1));

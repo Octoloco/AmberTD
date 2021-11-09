@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EconomyScript : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class EconomyScript : MonoBehaviour
 
     [SerializeField]
     private int totalCurrency;
+    [SerializeField]
+    private TextMeshProUGUI currencyText;
 
     private void Awake()
     {
@@ -23,22 +26,19 @@ public class EconomyScript : MonoBehaviour
 
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        UpdateCurrency();
     }
 
     public void AddCurrency(int ammount)
     {
         totalCurrency += ammount;
+        UpdateCurrency();
     }
 
     public void ReduceCurrency(int ammount)
     {
         totalCurrency -= ammount;
+        UpdateCurrency();
     }
 
     public bool CanAfford(int ammount)
@@ -51,5 +51,10 @@ public class EconomyScript : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private void UpdateCurrency()
+    {
+        currencyText.text = "$" + totalCurrency.ToString();
     }
 }

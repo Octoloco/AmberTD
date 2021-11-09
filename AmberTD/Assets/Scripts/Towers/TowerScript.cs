@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class TowerScript : MonoBehaviour
 {
-    enum TowerTypeEnum { Normal, Slow, Area }
-
-    [SerializeField]
-    private TowerTypeEnum towerType = TowerTypeEnum.Normal;
     [SerializeField]
     private float fireRate;
 
@@ -15,6 +11,8 @@ public class TowerScript : MonoBehaviour
     private List<Transform> enemiesInRange;
     private float fireTimer;
     private Transform target;
+    private float currentFireRate;
+    private bool upgraded;
 
 
     private void Awake()
@@ -24,6 +22,7 @@ public class TowerScript : MonoBehaviour
 
     void Start()
     {
+        currentFireRate = fireRate;
         enemiesInRange = new List<Transform>();
     }
 
@@ -40,7 +39,7 @@ public class TowerScript : MonoBehaviour
         {
             if (target != null)
             {
-                fireTimer = fireRate;
+                fireTimer = currentFireRate;
                 Fire();
             }
         }
@@ -97,8 +96,20 @@ public class TowerScript : MonoBehaviour
     {
         //Sets the tower in the correct position
         ammoPool = pool;
+        upgraded = false;
+        currentFireRate = fireRate;
         transform.position = newPosition;
         gameObject.SetActive(true);
+    }
+
+    public void Upgrade()
+    {
+        if (!upgraded && EconomyScript.instance.CanAfford(20))
+        {
+            upgraded = true;
+            currentFireRate = fireRate * 2;
+            EconomyScript.instance.ReduceCurrency(20);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -119,6 +130,12 @@ public class TowerScript : MonoBehaviour
             enemiesInRange.Remove(collision.transform);
         }
         target = null;
+    }
+
+    public void Die()
+    {
+        GetComponentInParent<ObjectPool>().AddToQueue(gameObject);
+        gameObject.SetActive(false);
     }
 
     public static float DirToAngle(Vector2 dir) => Mathf.Atan2(dir.y, dir.x);

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8726490068472638718}
   - component: {fileID: 8726490068472638717}
   - component: {fileID: 8726490068472638657}
-  - component: {fileID: 1203457023885189968}
+  - component: {fileID: 5632911593987971158}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,9 +74,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.745283, g: 0.5140452, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,9 +135,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9285b578bf3c8f2418f4bdb8812c5d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  enemyType: 0
+  speed: 6
+  slowDuration: 2
   nodes: {fileID: 0}
---- !u!114 &1203457023885189968
+  currencyData: {fileID: 11400000, guid: dbbe19273d5004a4e8805b986905c3fc, type: 2}
+  damageData: {fileID: 11400000, guid: d493187d1fffe494c8e43b34dc9ba4f8, type: 2}
+--- !u!114 &5632911593987971158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +150,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8726490068472638716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a274ec88f8a734589afaeb400ea344, type: 3}
+  m_Script: {fileID: 11500000, guid: 293ce96581941ba4590abe8122660463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 6
+  healthText: {fileID: 0}
